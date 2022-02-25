@@ -1,0 +1,24 @@
+body {
+    background: #212529;
+}
+
+.movie-wrapper {
+    margin-top: 50px;
+}
+
+.movie-content {
+    background: #0e1e25;
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+.movie-content>h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.movie-content>p {
+    font-size: 15px;
+}
