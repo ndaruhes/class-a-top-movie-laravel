@@ -8,37 +8,40 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="{{ url('/') }}"><i class="uil uil-home me-1"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#"><i class="uil uil-youtube me-1"></i>Movies</a>
                 </li>
-                @if (Auth::check())
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/register') }}"><i
+                                class="uil uil-user-plus me-1"></i>Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/login') }}"><i class="uil uil-user me-1"></i>Login</a>
+                    </li>
+                @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="uil uil-user me-1"></i>
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li>
-                                <a class="dropdown-item" href="#"
-                                    onclick="event.preventDefault();document.getElementById('logout-form').submit()">
+                                <a class="dropdown-item" href=""
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
                                     Logout
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST">
-                                        @csrf
-                                    </form>
                                 </a>
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
+                                    @csrf
+                                </form>
                             </li>
                         </ul>
                     </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/register') }}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/login') }}">Login</a>
-                    </li>
-                @endif
+                @endguest
             </ul>
         </div>
     </div>
