@@ -22,7 +22,6 @@ class RoleAdmin
                 return $next($request);
             }
         }
-
         return abort(404);
     }
 }

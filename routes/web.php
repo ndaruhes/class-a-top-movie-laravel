@@ -27,6 +27,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // ADMIN ROUTES
     Route::group(['middleware' => 'RoleAdmin'], function () {
         Route::get('/admin', 'HomeController@admin');
+
+        Route::get('/genre', 'GenreController@index');
+        Route::post('/genre', 'GenreController@store')->name('storeGenre');
+        Route::get('/genre/edit/{id}', 'GenreController@edit')->name('editGenre');
+        Route::put('/genre/edit/{id}', 'GenreController@update')->name('updateGenre');
+        Route::delete('/genre/delete/{id}', 'GenreController@destroy')->name('deleteGenre');
     });
 
     // MEMBER ROUTES

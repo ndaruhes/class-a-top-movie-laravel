@@ -22,6 +22,12 @@
                         <a class="nav-link" href="{{ url('/login') }}"><i class="uil uil-user me-1"></i>Login</a>
                     </li>
                 @else
+                    @if (Auth::user()->role == 'Admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/genre') }}"><i
+                                    class="uil uil-location-arrow me-1"></i>Manage Genre</a>
+                        </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
