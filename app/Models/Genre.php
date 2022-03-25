@@ -14,4 +14,9 @@ class Genre extends Model
     
     // Field yang tidak boleh diisi kedalam table
     // protected $guarded = ['id'];
+
+    public function movie(){
+        // hasMany('model movie', 'foreign key di table movie');
+        return $this->hasMany('App\Models\Movie', 'genre_id');
+    }
 }

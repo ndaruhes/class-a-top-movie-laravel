@@ -2,7 +2,6 @@
 
 @section('judul', 'Manage Genre | Top Movie')
 
-
 @section('content')
     {{-- ADD MODAL --}}
     @include('genres.create')
@@ -14,8 +13,10 @@
             <h4>Manage Genres</h4>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore ipsam quod fuga eos cupiditate amet quam</p>
             <hr>
-            <button class="btn btn-sm btn-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                    class="uil uil-plus-circle me-1"></i>Buat Genre</button>
+            <button class="btn btn-sm btn-dark my-2" data-bs-toggle="modal" data-bs-target="#createGenreModal">
+                <i class="uil uil-plus-circle me-1"></i>
+                    Buat Genre
+            </button>
 
             {{-- MESSAGE --}}
             @if (session('success_msg'))

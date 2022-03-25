@@ -24,8 +24,16 @@
                 @else
                     @if (Auth::user()->role == 'Admin')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/genre') }}"><i
-                                    class="uil uil-location-arrow me-1"></i>Manage Genre</a>
+                            <a class="nav-link" href="{{ url('/genre') }}">
+                                <i class="uil uil-location-arrow me-1"></i>
+                                Manage Genre
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/movie') }}">
+                                <i class="uil uil-apps me-1"></i>
+                                Manage Movie
+                            </a>
                         </li>
                     @endif
                     <li class="nav-item dropdown">

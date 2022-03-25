@@ -28,11 +28,19 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::group(['middleware' => 'RoleAdmin'], function () {
         Route::get('/admin', 'HomeController@admin');
 
+        // 1. Genre
         Route::get('/genre', 'GenreController@index');
         Route::post('/genre', 'GenreController@store')->name('storeGenre');
         Route::get('/genre/edit/{id}', 'GenreController@edit')->name('editGenre');
         Route::put('/genre/edit/{id}', 'GenreController@update')->name('updateGenre');
         Route::delete('/genre/delete/{id}', 'GenreController@destroy')->name('deleteGenre');
+
+        // 2. Movie
+        Route::get('/movie', 'MovieController@index');
+        Route::post('/movie', 'MovieController@store')->name('storeMovie');
+        Route::get('/movie/edit/{id}', 'MovieController@edit')->name('editMovie');
+        Route::put('/movie/edit/{id}', 'MovieController@update')->name('updateMovie');
+        Route::delete('/movie/delete/{id}', 'MovieController@destroy')->name('deleteMovie');
     });
 
     // MEMBER ROUTES
