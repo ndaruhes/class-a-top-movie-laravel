@@ -13,14 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 Auth::routes();
 
-
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    // INDEX (HALAMAN UTAMA WEB)
+    Route::get('/', 'PageController@index');
+    Route::get('/movies/explore', 'PageController@explore');
+
+    // MOVIE ROUTES
+    Route::get('/movie', 'MovieController@index');
+    Route::delete('/movie/delete/{id}', 'MovieController@destroy')->name('deleteMovie');
+
     // AUTH ROUTES
     Route::get('/home', 'HomeController@index')->name('home');
 
@@ -34,17 +37,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/genre/edit/{id}', 'GenreController@edit')->name('editGenre');
         Route::put('/genre/edit/{id}', 'GenreController@update')->name('updateGenre');
         Route::delete('/genre/delete/{id}', 'GenreController@destroy')->name('deleteGenre');
-
-        // 2. Movie
-        Route::get('/movie', 'MovieController@index');
-        Route::post('/movie', 'MovieController@store')->name('storeMovie');
-        Route::get('/movie/edit/{id}', 'MovieController@edit')->name('editMovie');
-        Route::put('/movie/edit/{id}', 'MovieController@update')->name('updateMovie');
-        Route::delete('/movie/delete/{id}', 'MovieController@destroy')->name('deleteMovie');
     });
 
     // MEMBER ROUTES
     Route::group(['middleware' => 'RoleMember'], function () {
         Route::get('/member', 'HomeController@member');
+
+        Route::post('/movie', 'MovieController@store')->name('storeMovie');
+        Route::get('/movie/edit/{id}', 'MovieController@edit')->name('editMovie');
+        Route::put('/movie/edit/{id}', 'MovieController@update')->name('updateMovie');
     });
 });

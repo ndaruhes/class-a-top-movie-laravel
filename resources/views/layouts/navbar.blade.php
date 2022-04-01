@@ -11,7 +11,8 @@
                     <a class="nav-link" href="{{ url('/') }}"><i class="uil uil-home me-1"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="uil uil-youtube me-1"></i>Movies</a>
+                    <a class="nav-link" href="{{ url('/movies/explore') }}"><i
+                            class="uil uil-youtube me-1"></i>Movies</a>
                 </li>
                 @guest
                     <li class="nav-item">
@@ -22,17 +23,17 @@
                         <a class="nav-link" href="{{ url('/login') }}"><i class="uil uil-user me-1"></i>Login</a>
                     </li>
                 @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/movie') }}">
+                            <i class="uil uil-apps me-1"></i>
+                            Manage Movie
+                        </a>
+                    </li>
                     @if (Auth::user()->role == 'Admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/genre') }}">
                                 <i class="uil uil-location-arrow me-1"></i>
                                 Manage Genre
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/movie') }}">
-                                <i class="uil uil-apps me-1"></i>
-                                Manage Movie
                             </a>
                         </li>
                     @endif

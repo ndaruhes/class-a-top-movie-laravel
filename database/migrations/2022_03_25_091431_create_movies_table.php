@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('tahun_rilis');
             $table->integer('genre_id');
             $table->integer('user_id');
+            $table->enum('status', ['Pending', 'Accepted']);
             $table->timestamps();
         });
     }

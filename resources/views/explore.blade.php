@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
-@section('judul', 'Home | TopMovie')
+@section('judul', 'Explore Movie | TopMovie')
 
 @section('content')
     <div class="container movie-wrapper">
+        <h3>All Movies</h3>
+        <hr>
         <div class="row">
             @foreach ($movies as $movie)
                 <div class="col-md-3 movie-item">
